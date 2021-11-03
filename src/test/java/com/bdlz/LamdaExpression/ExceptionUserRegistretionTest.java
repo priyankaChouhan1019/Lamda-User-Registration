@@ -47,5 +47,18 @@ public class ExceptionUserRegistretionTest {
         Assert.assertEquals(false, actualResult);
     }
 
+    @Test
+    public void givenMobileNumber_IsProper_ReturnTrue() {
+        boolean actualResult = exceptionUserRegistration.mobileNumber("91 9989774565");
+        Assert.assertEquals(true, actualResult);
+    }
+
+    @Test
+    public void givenMobileNumber_IsNotProper_ReturnFalse() {
+        boolean actualResult = exceptionUserRegistration.mobileNumber("919989774565");
+        Assert.assertEquals(false, actualResult);
+    }
+
+
 
 }
