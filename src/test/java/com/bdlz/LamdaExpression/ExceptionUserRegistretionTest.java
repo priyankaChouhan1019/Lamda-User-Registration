@@ -1,17 +1,38 @@
 package com.bdlz.LamdaExpression;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 
 public class ExceptionUserRegistretionTest {
-    public String regex;
+    ExceptionUserRegistretion exceptionUserRegistration = new ExceptionUserRegistretion();
 
-    public boolean firstName(String firstName) {
-        regex = "^[A-Z]{1}[a-z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(firstName);
-        return matcher.matches();
+    @Test
+    public void givenFirstName_IsProper_ReturnTrue() {
+        boolean actualResult = exceptionUserRegistration.firstName("Priyanka");
+        assertEquals(true, actualResult);
     }
+
+    @Test
+    public void givenFirstName_IsProper_ReturnFalse() {
+        boolean actualResult = exceptionUserRegistration.firstName("Priyanka");
+        Assert.assertEquals(false, actualResult);
+    }
+
+    @Test
+    public void givenLastName_IsProper_ReturnTrue() {
+        boolean actualResult = exceptionUserRegistration.lastName("Chouhan");
+        Assert.assertEquals(true, actualResult);
+    }
+
+    @Test
+    public void givenLastName_IsProper_ReturnFalse() {
+        boolean actualResult = exceptionUserRegistration.lastName("Chouhan");
+        Assert.assertEquals(false, actualResult);
+    }
+
 }
